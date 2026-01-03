@@ -1,5 +1,6 @@
 plugins {
 	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+	id 'org.gradle.crypto.checksum' version '1.4.0'
 }
 
 version = project.mod_version
@@ -64,3 +65,14 @@ java {
 	sourceCompatibility = JavaVersion.VERSION_21
 	targetCompatibility = JavaVersion.VERSION_21
 }
+
+// generate checksum for output jar
+import org.gradle.crypto.checksum.Checksum
+tasks.register('createChecksums', Checksum) {
+	dependsOn jar
+
+	inputFiles.setFrom(remapJar.outputs.files)
+	checksumAlgorithm.set(Checksum.Algorithm.SHA512)
+	appendFileNameToChecksum.set(true)
+}
+build.finalizedBy('createChecksums')
