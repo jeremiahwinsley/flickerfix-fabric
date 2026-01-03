@@ -5,7 +5,7 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ fabric ]
+    branches: [ main ]
   pull_request:
     types: [ opened, synchronize, reopened ]
 
