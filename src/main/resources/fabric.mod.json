@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "flickerfix",
+	"version": "${version}",
+	"name": "FlickerFix",
+	"description": "Disables nightvision flickering when duration goes below 10 seconds.",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/jeremiahwinsley/flickerfix-fabric"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/modid/icon.png",
+	"environment": "client",
+	"mixins": [
+		{
+			"config": "flickerfix.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.2",
+		"minecraft": "~1.21.1",
+		"java": ">=21"
+	}
+}
